@@ -1,4 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "DM-regular", sans-serif !important;
+}
+
+$fnt-size-XXS: 14px;
+$fnt-size-XS: 18px;
+$fnt-size-S: 20px;
+$fnt-size-M: 32px;
+$fnt-size-L: 46px;
+
+$border-radius-large: 30px;
+
+$primary-red: #e50914;
+
+@font-face {
+  font-family: "DM-bold";
+  src: url("/src/assets/fonts/DMSans-Bold.ttf") format("woff2"),
+    url("/src/assets/fonts/DMSans-Bold.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM-regular";
+  src: url("/src/assets/fonts/DMSans-Regular.ttf") format("woff2"),
+    url("/src/assets/fonts/DMSans-Regular.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM-medium";
+  src: url("/src/assets/fonts/DMSans-Medium.ttf") format("woff2"),
+    url("/src/assets/fonts/DMSans-Medium.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM-italic";
+  src: url("/src/assets/fonts/DMSans-Italic.ttf") format("woff2"),
+    url("/src/assets/fonts/DMSans-Italic.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

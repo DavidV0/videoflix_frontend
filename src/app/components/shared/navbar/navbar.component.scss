@@ -1,0 +1,24 @@
+@import "../../../../styles.scss";
+
+.container{
+    font-family: "DM-bold";
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+
+    >.left{
+        margin-left: 20px;
+        >h2{
+            font-size: $fnt-size-M;
+            font-family: "DM-regular";
+            color: $primary-red;
+            margin: 0;
+        }
+    }
+  
+}
+
+
