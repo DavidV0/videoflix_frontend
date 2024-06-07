@@ -20,4 +20,15 @@ export class AuthService {
     const url = `${this.baseUrl}/login/`;
     return this.http.post(url, { email, password });
   }
+
+
+  requestPasswordReset(email: string): Observable<any> {
+    const url = `${this.baseUrl}/password_reset/`;
+    return this.http.post(url, { email });
+  }
+
+  confirmPasswordReset(uidb64: string | null, token: string | null, newPassword: string, confirmPassword: string): Observable<any> {
+    const url = `${this.baseUrl}/password_reset/confirm/${uidb64}/${token}/`;
+    return this.http.post(url, { newPassword, confirmPassword });
+  }
 }

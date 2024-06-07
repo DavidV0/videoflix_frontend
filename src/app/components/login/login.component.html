@@ -29,7 +29,7 @@
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Sign In</button>
     </form>
-    <a id="forgot-password">Forgot password?</a>
+    <a id="forgot-password" [routerLink]="['/password-reset']" >Forgot password?</a>
     <p id="new-to-netflix">
       New to Videoflix? <a id="sign-up" [routerLink]="['/register']">Sign up now.</a>
     </p>

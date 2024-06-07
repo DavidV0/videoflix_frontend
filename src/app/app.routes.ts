@@ -3,6 +3,8 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PasswordResetRequestComponent } from './components/password-reset-request/password-reset-request.component';
+import { PasswordResetConfirmComponent } from './components/password-reset-confirm/password-reset-confirm.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -10,4 +12,6 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'password-reset', component: PasswordResetRequestComponent },
+    { path: 'password-reset/confirm/:uidb64/:token', component: PasswordResetConfirmComponent },
 ];
