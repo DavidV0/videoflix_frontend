@@ -1,8 +1,16 @@
 @import "../../../../styles.scss";
 
+.back{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
 .container{
     font-family: "DM-bold";
-    width: 100vw;
+    width: 100%;
+    max-width: 1440px;
+
     height: 10vh;
     display: flex;
     flex-direction: row;
@@ -10,7 +18,7 @@
     background-color: black;
 
     >.left{
-        margin-left: 20px;
+        margin-left: 40px;
         >h2{
             font-size: $fnt-size-M;
             font-family: "DM-regular";

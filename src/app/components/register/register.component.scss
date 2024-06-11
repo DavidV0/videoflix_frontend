@@ -1,0 +1,133 @@
+@import "../../../styles.scss";
+
+.background {
+    background: url("../../../assets/img/background.png") no-repeat center center fixed;
+    background-size: cover;
+    position: absolute;
+    height: 90vh;
+    width: 100vw;
+    filter: brightness(40%);
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+    height: 90vh;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Add a dark overlay */
+}
+
+h1 {
+    font-family: "DM-bold";
+    font-size: $fnt-size-L;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-family: "DM-bold";
+    font-size: $fnt-size-M;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-family: "DM-bold";
+    font-size: $fnt-size-XS;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.has-error input {
+    border: 1px solid #e87c03;
+}
+
+.error-message {
+    font-family: "DM-bold";
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.success-message {
+    font-family: "DM-bold";
+    color: green;
+    font-size: $fnt-size-S;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.email-form input {
+    padding: 15px;
+    width: 100%;
+    max-width: 300px;
+    
+    border-radius: 5px;
+    font-size: $fnt-size-S;
+}
+
+.email-form button {
+    padding: 15px;
+    width: 100%;
+    max-width: 200px;
+    background-color: #e50914;
+    color: white;
+    border-radius: 5px;
+    font-size: $fnt-size-S;
+    cursor: pointer;
+}
+
+.email-form button:hover {
+    background-color: #f40612;
+}
+
+.form-control {
+    font-family: "DM-italic";
+    font-size: $fnt-size-XS;
+    background-color: rgba(49, 49, 49, 0.4);
+    border: solid 1px rgba(170, 169, 169, 0.6);
+    border: solid 1px rgba(170, 169, 169, 0.6);
+
+    color: white;
+  }
+  
+  .form-control::placeholder {
+    color: rgb(185, 184, 184);
+  }
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: $fnt-size-M;
+    }
+
+    h2 {
+        font-size: $fnt-size-S;
+    }
+
+    p {
+        font-size: $fnt-size-XXS;
+    }
+
+    .email-form input, .email-form button {
+        font-size: $fnt-size-XS;
+    }
+}
