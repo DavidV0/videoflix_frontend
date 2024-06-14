@@ -1,11 +1,12 @@
 <div *ngIf="errorMessage; else movieList">
     <p>{{ errorMessage }}</p>
-</div>
-
-<ng-template #movieList>
+  </div>
+  
+  <ng-template #movieList>
     <div *ngFor="let movie of movies">
-        <h2>{{ movie.title }}</h2>
-        <p>{{ movie.description }}</p>
-        <a [routerLink]="['/movie', movie.id]">Details</a>
+      <h2>{{ movie.title }}</h2>
+      <p>{{ movie.description }}</p>
+      <a [routerLink]="['/movie', movie.id]">Details</a>
     </div>
-</ng-template>
+  </ng-template>
+  

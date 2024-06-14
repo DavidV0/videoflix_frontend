@@ -1,1 +1,11 @@
-<p>movie-detail works!</p>
+<p *ngIf="errorMessage">{{ errorMessage }}</p>
+<div *ngIf="movie">
+  <h1>{{ movie.title }}</h1>
+  <p>{{ movie.description }}</p>
+  <p>Release Date: {{ movie.release_date }}</p>
+  <app-video-player *ngIf="movie.video_480p && movie.video_720p"
+                    [playerId]="'videoPlayer'"
+                    [videoUrl480p]="getVideoUrl(movie.video_480p)"
+                    [videoUrl720p]="getVideoUrl(movie.video_720p)">
+  </app-video-player>
+</div>

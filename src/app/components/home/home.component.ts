@@ -13,21 +13,14 @@ import { MovieService } from '../../services/movie.service';
 })
 export class HomeComponent implements OnInit {
     movies: any[] = [];
-    errorMessage: string = '';
+  errorMessage: string | null = null;
 
-    constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService) {}
 
-    ngOnInit(): void {
-        this.movieService.getMovies().subscribe(
-            data => {
-                this.movies = data;
-                if (this.movies.length === 0) {
-                    this.errorMessage = 'Currently no movies to watch.';
-                }
-            },
-            error => {
-                this.errorMessage = 'An error occurred while fetching movies.';
-            }
-        );
-    }
+  ngOnInit(): void {
+    this.movieService.getMovies().subscribe(
+      data => this.movies = data,
+      error => this.errorMessage = 'Could not load movies'
+    );
+  }
 }

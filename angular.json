@@ -33,14 +33,12 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/cyan-orange.css",
+              "node_modules/video.js/dist/video-js.css",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": [
+              "node_modules/video.js/dist/video.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,9 +96,12 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/cyan-orange.css",
+              "node_modules/video.js/dist/video-js.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/video.js/dist/video.js"
+            ]
           }
         }
       }
