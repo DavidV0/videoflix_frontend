@@ -1,11 +1,16 @@
-<p *ngIf="errorMessage">{{ errorMessage }}</p>
-<div *ngIf="movie">
-  <h1>{{ movie.title }}</h1>
-  <p>{{ movie.description }}</p>
-  <p>Release Date: {{ movie.release_date }}</p>
+<div class="movie-detail-container" *ngIf="movie">
+  <div class="back-button" (click)="goBack()">
+    <strong>  &#8592; </strong>
+  </div>
+  <div class="movie-info">
+    <h1>{{ movie.title }}</h1>
+    <p class="description">{{ movie.description }}</p>
+    <p class="release-date">Release Date: {{ movie.release_date }}</p>
+  </div>
   <app-video-player *ngIf="movie.video_480p && movie.video_720p"
                     [playerId]="'videoPlayer'"
                     [videoUrl480p]="getVideoUrl(movie.video_480p)"
                     [videoUrl720p]="getVideoUrl(movie.video_720p)">
   </app-video-player>
 </div>
+<p *ngIf="errorMessage">{{ errorMessage }}</p>

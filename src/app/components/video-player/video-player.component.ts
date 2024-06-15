@@ -11,8 +11,8 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   @Input() playerId: string = 'videoPlayer';
   @Input() videoUrl480p: string = '';
   @Input() videoUrl720p: string = '';
-  @ViewChild('videoPlayerElement') videoPlayerElement!: ElementRef;
-  player!: videojs.Player;
+  @ViewChild('videoPlayerElement', { static: true }) videoPlayerElement!: ElementRef;
+  player = videojs.players;
 
   ngOnInit(): void {
     this.player = videojs(this.videoPlayerElement.nativeElement, {
@@ -29,7 +29,9 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     }
   }
 
-  switchResolution(resolution: string): void {
+  switchResolution(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    const resolution = target?.value;
     const newSource = resolution === '720p' ? this.videoUrl720p : this.videoUrl480p;
     this.player.src({ src: newSource, type: 'video/mp4' });
     this.player.load();

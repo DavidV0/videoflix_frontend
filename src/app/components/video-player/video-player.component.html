@@ -1,9 +1,7 @@
-<div>
-    <select (change)="switchResolution($event.targe.value)">
-      <option value="480p">480p</option>
-      <option value="720p">720p</option>
-    </select>
-    <video #videoPlayerElement [id]="playerId" class="video-js vjs-default-skin" controls preload="auto">
-    </video>
-  </div>
-  
+<div class="video-container">
+  <select (change)="switchResolution($event)" class="resolution-select">
+    <option value="480p">480p</option>
+    <option value="720p">720p</option>
+  </select>
+  <video #videoPlayerElement [id]="playerId" class="video-js vjs-default-skin" controls preload="auto"></video>
+</div>
