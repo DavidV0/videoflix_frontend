@@ -3,18 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class MovieService {
-    private apiUrl = 'http://localhost:8000/api/movies/';
+  private apiUrl = 'http://localhost:8000/api/movies/';
 
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-    getMovies(): Observable<any> {
-        return this.http.get(this.apiUrl);
-    }
+  getMovies(): Observable<any> {
+    return this.http.get(this.apiUrl);
+  }
 
-    getMovie(id: number): Observable<any> {
-        return this.http.get(`${this.apiUrl}${id}/`);
-    }
+  getMovie(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}${id}/`);
+  }
 }

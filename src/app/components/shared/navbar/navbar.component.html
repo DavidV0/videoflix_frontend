@@ -3,5 +3,9 @@
     <div class="left">
       <h2>VideofliX</h2>
     </div>
+    <div class="right">
+      <button *ngIf="showLogoutButton" (click)="logout()">Logout</button>
+      <button *ngIf="showLoginButton" routerLink="/login">Login</button>
+    </div>
   </div>
 </div>

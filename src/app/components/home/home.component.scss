@@ -1,0 +1,140 @@
+@import "../../../styles.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #141414;
+  color: white;
+  width: 100vw;
+  min-height: 90vh;
+  overflow-x: hidden;
+}
+
+.banner {
+  width: 100%;
+  background: url('../../../assets/img/banner.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 50px 20px;
+  text-align: center;
+  margin-bottom: 40px;
+
+  .banner-content {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+
+    h1 {
+      font-family: "DM-bold";
+      font-size: $fnt-size-L;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: "DM-regular";
+      font-size: $fnt-size-S;
+    }
+  }
+}
+
+.error-message {
+  color: red;
+}
+
+.movie-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 10px; /* Add padding to avoid overflow issues */
+}
+
+.movie-card {
+  background: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+
+  .movie-banner img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #333;
+  }
+
+  .movie-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 100%;
+    padding: 10px 0;
+
+    h2 {
+      font-family: "DM-bold";
+      font-size: $fnt-size-S;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: "DM-regular";
+      font-size: $fnt-size-XS;
+      margin-bottom: 10px;
+    }
+
+    .details-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: $primary-red;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-family: "DM-medium";
+
+      &:hover {
+        background-color: darken($primary-red, 10%);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-content {
+    h1 {
+      font-size: $fnt-size-M;
+    }
+
+    p {
+      font-size: $fnt-size-XS;
+    }
+  }
+
+  .movie-card {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-content {
+    h1 {
+      font-size: $fnt-size-S;
+    }
+
+    p {
+      font-size: $fnt-size-XXS;
+    }
+  }
+
+  .movie-card {
+    width: 100%;
+  }
+}

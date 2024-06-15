@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class AuthService {
 
   private baseUrl = 'http://localhost:8000/api/auth';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   register(email: string, password: string): Observable<any> {
     const url = `${this.baseUrl}/register/`;
@@ -30,5 +31,11 @@ export class AuthService {
   confirmPasswordReset(uidb64: string | null, token: string | null, newPassword: string, confirmPassword: string): Observable<any> {
     const url = `${this.baseUrl}/password_reset/confirm/${uidb64}/${token}/`;
     return this.http.post(url, { newPassword, confirmPassword });
+  }
+
+  logout() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 }

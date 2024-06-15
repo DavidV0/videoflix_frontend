@@ -1,12 +1,25 @@
-<div *ngIf="errorMessage; else movieList">
-    <p>{{ errorMessage }}</p>
+<div class="banner">
+  <div class="banner-content">
+    <h1>Welcome to VideoFlix</h1>
+    <p>Explore the newest movies on the market, watch series, movies, animes, and more. Start exploring & enjoying unlimited entertainment!</p>
   </div>
-  
-  <ng-template #movieList>
-    <div *ngFor="let movie of movies">
-      <h2>{{ movie.title }}</h2>
-      <p>{{ movie.description }}</p>
-      <a [routerLink]="['/movie', movie.id]">Details</a>
+</div>
+
+<div *ngIf="errorMessage; else movieList" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<ng-template #movieList>
+  <div class="movie-grid">
+    <div class="movie-card" *ngFor="let movie of movies">
+      <div class="movie-banner">
+        <img [src]="getThumbnailUrl(movie.thumbnail_file)" alt="{{ movie.title }}">
+      </div>
+      <div class="movie-info">
+        <h2>{{ movie.title }}</h2>
+        <p>{{ truncateDescription(movie.description) }}</p>
+        <a [routerLink]="['/movie', movie.id]" class="details-link">Details</a>
+      </div>
     </div>
-  </ng-template>
-  
+  </div>
+</ng-template>
