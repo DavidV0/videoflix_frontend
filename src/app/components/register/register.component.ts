@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 
@@ -21,13 +27,23 @@ export class RegisterComponent {
     private authService: AuthService,
     private router: Router
   ) {
-    this.registerForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]],
-      confirmPassword: ['', [Validators.required]]
-    }, {
-      validator: this.mustMatch('password', 'confirmPassword')
-    });
+    this.registerForm = this.fb.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(4),
+            Validators.maxLength(60),
+          ],
+        ],
+        confirmPassword: ['', [Validators.required]],
+      },
+      {
+        validator: this.mustMatch('password', 'confirmPassword'),
+      }
+    );
   }
 
   mustMatch(password: string, confirmPassword: string) {
@@ -51,16 +67,15 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       const { email, password } = this.registerForm.value;
       this.authService.register(email, password).subscribe(
-        response => {
-          console.log('Registration successful', response);
-          this.successMessage = 'Registration successful! Please check your email for the activation link.';
+        (response) => {
+          this.successMessage =
+            'Registration successful! Please check your email for the activation link.';
           this.errorMessage = '';
           setTimeout(() => {
             this.router.navigate(['/login']);
           }, 3000); // Redirect after 3 seconds
         },
-        error => {
-          console.error('Registration error', error);
+        (error) => {
           this.errorMessage = 'Something went wrong. Please try again.';
           this.successMessage = '';
         }

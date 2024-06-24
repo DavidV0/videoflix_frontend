@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 
@@ -12,7 +18,6 @@ import { Router, RouterLink } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  
   loginForm: FormGroup;
   successMessage: string = '';
   errorMessage: string = '';
@@ -24,7 +29,14 @@ export class LoginComponent {
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]]
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(60),
+        ],
+      ],
     });
   }
 
@@ -33,7 +45,6 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe(
         (response) => {
-          console.log('Login successful', response);
           this.successMessage = 'Login successful';
           this.errorMessage = '';
           setTimeout(() => {
@@ -41,8 +52,8 @@ export class LoginComponent {
           }, 2000); // Redirect after 2 seconds
         },
         (error) => {
-          console.error('Login error', error);
-          this.errorMessage = 'Something went wrong. Please check your email and password and try again.';
+          this.errorMessage =
+            'Something went wrong. Please check your email and password and try again.';
           this.successMessage = '';
         }
       );
