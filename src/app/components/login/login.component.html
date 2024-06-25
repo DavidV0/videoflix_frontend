@@ -10,28 +10,73 @@
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
       </div>
-      <div class="form-group" [ngClass]="{'has-error': email!.invalid && (email!.dirty || email!.touched)}">
-        <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email">
-        <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error-message">
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-error': email!.invalid && (email!.dirty || email!.touched)
+        }"
+      >
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Email"
+        />
+        <div
+          *ngIf="email!.invalid && (email!.dirty || email!.touched)"
+          class="error-message"
+        >
           <span class="error-icon">❌</span>
-          <div *ngIf="email!.errors?.['required']">Please enter your email.</div>
-          <div *ngIf="email!.errors?.['email']">Please enter a valid email.</div>
+          <div *ngIf="email!.errors?.['required']">
+            Please enter your email.
+          </div>
+          <div *ngIf="email!.errors?.['email']">
+            Please enter a valid email.
+          </div>
         </div>
       </div>
-      <div class="form-group" [ngClass]="{'has-error': password!.invalid && (password!.dirty || password!.touched)}">
-        <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password">
-        <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error-message">
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-error':
+            password!.invalid && (password!.dirty || password!.touched)
+        }"
+      >
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="Password"
+        />
+        <div
+          *ngIf="password!.invalid && (password!.dirty || password!.touched)"
+          class="error-message"
+        >
           <span class="error-icon">❌</span>
-          <div *ngIf="password!.errors?.['required']">Please enter your password.</div>
-          <div *ngIf="password!.errors?.['minlength']">Your password must contain at least 4 characters.</div>
-          <div *ngIf="password!.errors?.['maxlength']">Your password must contain no more than 60 characters.</div>
+          <div *ngIf="password!.errors?.['required']">
+            Please enter your password.
+          </div>
+          <div *ngIf="password!.errors?.['minlength']">
+            Your password must contain at least 4 characters.
+          </div>
+          <div *ngIf="password!.errors?.['maxlength']">
+            Your password must contain no more than 60 characters.
+          </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Sign In</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="loginForm.invalid"
+      >
+        Sign In
+      </button>
     </form>
-    <a id="forgot-password" [routerLink]="['/password-reset']" >Forgot password?</a>
     <p id="new-to-netflix">
-      New to Videoflix? <a id="sign-up" [routerLink]="['/register']">Sign up now.</a>
+      New to Videoflix?
+      <a id="sign-up" [routerLink]="['/register']">Sign up now.</a>
     </p>
   </body>
 </div>

@@ -69,7 +69,7 @@ export class RegisterComponent {
       this.authService.register(email, password).subscribe(
         (response) => {
           this.successMessage =
-            'Registration successful! Please check your email for the activation link.';
+            'Registration successful! Your will get redirected.';
           this.errorMessage = '';
           setTimeout(() => {
             this.router.navigate(['/login']);
