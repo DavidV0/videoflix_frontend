@@ -4,13 +4,12 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  private baseUrl = 'http://34.141.117.158/api/auth';
 
-  private baseUrl = 'http://localhost:8000/api/auth';
-
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   register(email: string, password: string): Observable<any> {
     const url = `${this.baseUrl}/register/`;
@@ -22,13 +21,17 @@ export class AuthService {
     return this.http.post(url, { email, password });
   }
 
-
   requestPasswordReset(email: string): Observable<any> {
     const url = `${this.baseUrl}/password_reset/`;
     return this.http.post(url, { email });
   }
 
-  confirmPasswordReset(uidb64: string | null, token: string | null, newPassword: string, confirmPassword: string): Observable<any> {
+  confirmPasswordReset(
+    uidb64: string | null,
+    token: string | null,
+    newPassword: string,
+    confirmPassword: string
+  ): Observable<any> {
     const url = `${this.baseUrl}/password_reset/confirm/${uidb64}/${token}/`;
     return this.http.post(url, { newPassword, confirmPassword });
   }

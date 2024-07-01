@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MovieService {
-  private apiUrl = 'http://localhost:8000/api/movies/';
+  private apiUrl = 'http://34.141.117.158/api/movies/';
 
   constructor(private http: HttpClient) {}
 
