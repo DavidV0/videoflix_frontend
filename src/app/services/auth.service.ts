@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://34.141.117.158/api/auth';
+  private baseUrl = 'https://videoflix-api.david-velickovic.at/api/auth';
 
   constructor(private http: HttpClient, private router: Router) {}
 

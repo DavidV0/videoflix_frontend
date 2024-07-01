@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MovieService {
-  private apiUrl = 'http://34.141.117.158/api/movies/';
+  private apiUrl = 'https://videoflix-api.david-velickovic.at/api/movies/';
 
   constructor(private http: HttpClient) {}
 
