@@ -48,7 +48,8 @@
   gap: 20px;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0 10px; /* Add padding to avoid overflow issues */
+  padding: 0 10px;
+  margin-bottom: 10vh;
 }
 
 .movie-card {
@@ -84,6 +85,9 @@
       font-family: "DM-bold";
       font-size: $fnt-size-S;
       margin-bottom: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     p {
