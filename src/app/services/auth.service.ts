@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,12 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     const url = `${this.baseUrl}/login/`;
-    return this.http.post(url, { email, password });
+    return this.http.post(url, { email, password }).pipe(
+      tap((response: any) => {
+        // Assuming the response contains the token
+        localStorage.setItem('authToken', response.token);
+      })
+    );
   }
 
   requestPasswordReset(email: string): Observable<any> {
@@ -40,5 +45,9 @@ export class AuthService {
     localStorage.removeItem('authToken');
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('authToken');
   }
 }

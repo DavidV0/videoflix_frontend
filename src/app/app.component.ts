@@ -11,5 +11,5 @@ import { FooterComponent } from './components/shared/footer/footer.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'videoflix_frontend';
+  title = 'videoflix';
 }

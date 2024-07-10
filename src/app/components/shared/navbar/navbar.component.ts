@@ -24,10 +24,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.showLogoutButton = !['/login', '/register'].includes(
-          event.urlAfterRedirects
-        );
-        this.showLoginButton = event.urlAfterRedirects === '/register';
+        const isLoggedIn = this.authService.isAuthenticated();
+        this.showLogoutButton = isLoggedIn;
+        this.showLoginButton = !isLoggedIn;
       }
     });
   }
